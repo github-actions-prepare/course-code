@@ -7,3 +7,16 @@ jobs:
     steps:
      - name: setting an error message
        run: echo "::error::Missing semicolon"
+     - name: setting an error message with parameters
+       run: echo "::error title=Some title, file=apps.js::Missing semicolon"
+     - name: setting a warning message with parameters
+       run: echo "::warning title=Warning title, file=apps.js::Missing semicolon"
+     - name: Group of msgs
+       run: |
+        echo "::group::My group title"
+        echo inside group
+        echo "::endgroup::"
+     - name: Masking a value
+       run: echo "::add-mask::Secret String"
+     - name: echo a secret
+       run: echo "Secret String"
